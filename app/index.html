@@ -1,0 +1,33 @@
+<html lang="en" ng-app="ToDoApp" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>ToDo App</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="app.css"/>
+</head>
+<body>
+  <div class="container"  ng-controller="ToDoController as toDo">
+    <div class="row">
+      <div>ToDo App</div>
+      <div class="col-sm-12">
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="toDo.task" on-enter="toDo.addToDo()">
+        </div>
+        <todo-tile-list todo-list="toDo.todoList"></todo-tile-list>
+      </div>
+    </div>
+    <input type="button" class="btn btn-info" value="Delete" ng-click="toDo.removeToDos()"/>
+    <input type="button" class="btn btn-info" value="DeleteAll" ng-click="toDo.removeAllTodos()"/>
+    <input type="button" class="btn btn-info" value="SelectAll" ng-click="toDo.selectAll()"/>
+  </div>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="app.js"></script>
+  <script src="service/ToDoService.js"></script>
+  <script src="directives/keyboard/onEnter.js"></script>
+  <script src="directives/ToDoTile/ToDoTileDirective.js"></script>
+  <script src="directives/ToDoTileList/ToDoTileListDirective.js"></script>
+  <script src="ToDoController.js"></script>
+
+</body>
+</html>
